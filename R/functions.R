@@ -4,7 +4,12 @@ library(dplyr)
 library(jsonlite)
 library(RJSONIO)
 
-http://i.yjapi.com/ECI/Search?key=ApiKey&keyword=小米科技有限责任公司&province=BJ
+###################################################
+#     Function to pull data from database         #
+###################################################
+
+PullData <- function(apikey, keyword){
+  http://i.yjapi.com/ECI/Search?key=ApiKey&keyword=小米科技有限责任公司&province=BJ
 
 api <- "http://dev.i.yjapi.com/ECI/GetDetailsByName?"
 apikey <- ""
@@ -14,6 +19,11 @@ response_content2 <- api %>%
   paste0("key=", apikey) %>%
   paste0("&keyword=", keyword) %>%
   GET() 
+  
+  
+  }
+
+
 
 response_content2 <- fromJSON(rawToChar(response_content2$content))
 
